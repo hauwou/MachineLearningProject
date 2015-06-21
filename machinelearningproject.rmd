@@ -13,6 +13,8 @@ The conceptual goal of this assignment is to do exploratory data analysis and pr
 
 The secondary goal of this assignment is to walk through the technical steps that were presented in the Machine Learning lectures.  Many steps are explained at the basic levels to serve as notes for future reviews.  Due to bugs, the models were executed manually/individually and the random forest yielded the best accuracy.  Therefore, the output of the script only contain the result for the random forest model.
 
+The out of sample error rate is expected to be higher than the training model.  OR The prediction accuracy is expected to be less for out of sample data.
+
 ###Bugs
 
 There are unexplained bugs in the caret package, this script cannot run all the models unattended (or sometimes individual model).  Sometimes, the models would run, sometimes they error out, sometimes the models would be completed but the script would not return to the command line and execute the next command. Often, when the training step hanged for 5 minutes, pressing the stop button will cause it to return to the command line, and then can manually proceed to the next step.
@@ -218,7 +220,7 @@ pml_write_files(rfPredictTestData)
 
 ###Conclusions
 
-The random forest model provides the best prediction accuracy for this data set.  PCA preprocess actually decrease accuracy for this data set. 
+The random forest model provides the best prediction accuracy for this data set.  PCA preprocess actually decrease accuracy for this data set. The accuracy for out of sample data is less than the accuracy rate of the training sample (for all models, as expected).  How much less is depending upon the accuracy of the training set, which depends on the size of the training data set.
 
 ###Notes/Tips
 
