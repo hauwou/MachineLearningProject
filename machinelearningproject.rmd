@@ -94,7 +94,7 @@ testData <- read.csv("testing.csv", na.strings = c("NA", "", "#DIV/0!"))
 
 There seem to be many NA values from missing data, find out which variables have too many missing values to be useful and throw them out.
 
-When running the summary(trainData), the result table shows many variables have 19xxx NA values, which mean they are mostly junk variables. In fact, every column that has missing values has more than 19000 missing values. Remove all columns with NAs. Remove the first 7 columns because they are not relevant data. If necessary, run nearZeroVar on the data to determine if there are other unuseful columns.
+When running the summary(trainData), the result table shows many variables have 19xxx NA values, which means they are mostly junk variables. In fact, every column that has missing values has more than 19000 missing values. Remove all columns with NAs. Remove the first 7 columns because they are not relevant data. If necessary, run nearZeroVar on the data to determine if there are other unuseful columns.
 
 ```{r}
 #summary(trainData) 
@@ -179,7 +179,7 @@ treePredict <- predict(treeFit, CV, type="class")
 confusionMatrix(treePredict, CV$classe)
 
 
-boostFit <- train(classe~., method="gbm",data=training, verbose=F, trControl = trainControl(method = "cv", number=3)) # preProcess=c("center","scale","pca"), trControl = trainControl(method = "cv", number=3)
+boostFit <- train(factor(classe)~., method="gbm",data=training, verbose=F, trControl = trainControl(method = "cv", number=3)) # preProcess=c("center","scale","pca"), trControl = trainControl(method = "cv", number=3)
 boostFit$finalModel
 boostPredict <- predict(boostFit, CV)
 confusionMatrix(boostPredict, CV$classe)
