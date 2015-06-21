@@ -7,6 +7,8 @@ output: html_document
 
 ##Summary
 
+Use this link to view html output http://htmlpreview.github.io/?https://github.com/hauwou/MachineLearningProject/blob/master/machinelearningproject.html
+
 The conceptual goal of this assignment is to do exploratory data analysis and preprocess data before performing trainings and predictions. The end goal is to accurately predict the type of exercises based on the movement data. Several prediction models were used and the model that yielded the best result were chosen.
 
 The secondary goal of this assignment is to walk through the technical steps that were presented in the Machine Learning lectures.  Many steps are explained at the basic levels to serve as notes for future reviews.  Due to bugs, the models were executed manually/individually and the random forest yielded the best accuracy.  Therefore, the output of the script only contain the result for the random forest model.
