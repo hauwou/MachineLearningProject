@@ -146,7 +146,7 @@ testData &lt;- read.csv(&quot;testing.csv&quot;, na.strings = c(&quot;NA&quot;, 
 <div id="pre-process-data" class="section level2">
 <h2>Pre-process Data</h2>
 <p>There seem to be many NA values from missing data, find out which variables have too many missing values to be useful and throw them out.</p>
-<p>When running the summary(trainData), the result table shows many variables have 19xxx NA values, which mean they are mostly junk variables. In fact, every column that has missing values has more than 19000 missing values. Remove all columns with NAs. Remove the first 7 columns because they are not relevant data. If necessary, run nearZeroVar on the data to determine if there are other unuseful columns.</p>
+<p>When running the summary(trainData), the result table shows many variables have 19xxx NA values, which means they are mostly junk variables. In fact, every column that has missing values has more than 19000 missing values. Remove all columns with NAs. Remove the first 7 columns because they are not relevant data. If necessary, run nearZeroVar on the data to determine if there are other unuseful columns.</p>
 <pre class="r"><code>#summary(trainData) 
 
 #loop through variables and remove junks
@@ -277,7 +277,7 @@ treePredict &lt;- predict(treeFit, CV, type=&quot;class&quot;)
 confusionMatrix(treePredict, CV$classe)
 
 
-boostFit &lt;- train(classe~., method=&quot;gbm&quot;,data=training, verbose=F, trControl = trainControl(method = &quot;cv&quot;, number=3)) # preProcess=c(&quot;center&quot;,&quot;scale&quot;,&quot;pca&quot;), trControl = trainControl(method = &quot;cv&quot;, number=3)
+boostFit &lt;- train(factor(classe)~., method=&quot;gbm&quot;,data=training, verbose=F, trControl = trainControl(method = &quot;cv&quot;, number=3)) # preProcess=c(&quot;center&quot;,&quot;scale&quot;,&quot;pca&quot;), trControl = trainControl(method = &quot;cv&quot;, number=3)
 boostFit$finalModel
 boostPredict &lt;- predict(boostFit, CV)
 confusionMatrix(boostPredict, CV$classe)
